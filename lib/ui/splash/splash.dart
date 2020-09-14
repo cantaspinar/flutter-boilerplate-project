@@ -21,7 +21,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Material(
       child: Center(child: AppIconWidget(image: Assets.appLogo)),
     );
@@ -36,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
     SharedPreferences preferences = await SharedPreferences.getInstance();
 
     if (preferences.getBool(Preferences.is_logged_in) ?? false) {
-      Navigator.of(context).pushNamed(Routes.home);
+      Navigator.of(context).pushReplacementNamed(Routes.home);
     } else {
       Navigator.of(context).pushNamed(Routes.login);
     }
