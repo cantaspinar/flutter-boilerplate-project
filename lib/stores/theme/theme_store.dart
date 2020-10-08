@@ -22,6 +22,7 @@ abstract class _ThemeStore with Store {
   @observable
   bool _darkMode = false;
 
+  @observable
   CustomTheme _currentTheme = CustomTheme.orange;
 
   // getters:-------------------------------------------------------------------
