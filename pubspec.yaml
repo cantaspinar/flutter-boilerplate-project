@@ -65,6 +65,9 @@ dependencies:
       path: package/inject
       ref: 7c3cbf6
 
+  # Convert enum to string and vice-versa
+  enum_to_string: ^1.0.13
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
