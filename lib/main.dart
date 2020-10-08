@@ -48,7 +48,6 @@ class MyApp extends StatelessWidget {
       LanguageStore(appComponent.getRepository());
 
   ThemeData _setTheme(CustomTheme theme) {
-    print(theme);
     switch (theme) {
       case CustomTheme.orange:
         return themeDataOrange;
