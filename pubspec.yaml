@@ -81,7 +81,7 @@ dev_dependencies:
   json_serializable: ^3.4.1
   build_runner:
   source_gen: 0.9.6
-  analyzer: 0.39.14
+  analyzer: 0.39.15
   inject_generator:
     git:
       url: https://github.com/google/inject.dart.git
