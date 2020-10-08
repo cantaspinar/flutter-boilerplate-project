@@ -25,21 +25,38 @@ import 'package:boilerplate/constants/font_family.dart';
 
 import 'package:flutter/material.dart';
 
-final ThemeData themeData = new ThemeData(
+final ThemeData themeDataOrange = new ThemeData(
     fontFamily: FontFamily.productSans,
     brightness: Brightness.light,
-    primarySwatch: MaterialColor(AppColors.orange[500].value, AppColors.orange),
-    primaryColor: AppColors.orange[500],
+    primarySwatch: Colors.orange,
+    primaryColor: Colors.orange,
     primaryColorBrightness: Brightness.light,
-    accentColor: AppColors.orange[500],
-    accentColorBrightness: Brightness.light
-);
+    accentColor: Colors.orange,
+    accentColorBrightness: Brightness.light);
 
-final ThemeData themeDataDark = ThemeData(
-  fontFamily: FontFamily.productSans,
-  brightness: Brightness.dark,
-  primaryColor: AppColors.orange[500],
-  primaryColorBrightness: Brightness.dark,
-  accentColor: AppColors.orange[500],
-  accentColorBrightness: Brightness.dark,
-);
+final ThemeData themeDataPurple = new ThemeData(
+    fontFamily: FontFamily.productSans,
+    brightness: Brightness.light,
+    primarySwatch: Colors.purple,
+    primaryColor: Colors.purple,
+    primaryColorBrightness: Brightness.light,
+    accentColor: Colors.purple,
+    accentColorBrightness: Brightness.light);
+
+final ThemeData themeDataGreen = new ThemeData(
+    fontFamily: FontFamily.productSans,
+    brightness: Brightness.light,
+    primarySwatch: Colors.green,
+    primaryColor: Colors.green,
+    primaryColorBrightness: Brightness.light,
+    accentColor: Colors.green,
+    accentColorBrightness: Brightness.light);
+
+final ThemeData themeDataBlue = new ThemeData(
+    fontFamily: FontFamily.productSans,
+    brightness: Brightness.light,
+    primarySwatch: Colors.blue,
+    primaryColor: Colors.blue,
+    primaryColorBrightness: Brightness.light,
+    accentColor: Colors.blue,
+    accentColorBrightness: Brightness.light);

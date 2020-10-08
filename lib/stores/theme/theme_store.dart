@@ -7,6 +7,8 @@ part 'theme_store.g.dart';
 
 class ThemeStore = _ThemeStore with _$ThemeStore;
 
+enum CustomTheme { orange, purple, green, blue }
+
 abstract class _ThemeStore with Store {
   final String TAG = "_ThemeStore";
 
@@ -20,13 +22,14 @@ abstract class _ThemeStore with Store {
   @observable
   bool _darkMode = false;
 
+  CustomTheme _currentTheme = CustomTheme.orange;
 
   // getters:-------------------------------------------------------------------
   bool get darkMode => _darkMode;
+  CustomTheme get currentTheme => _currentTheme;
 
   // constructor:---------------------------------------------------------------
-  _ThemeStore(Repository repository)
-      : this._repository = repository {
+  _ThemeStore(Repository repository) : this._repository = repository {
     init();
   }
 
@@ -37,9 +40,16 @@ abstract class _ThemeStore with Store {
     await _repository.changeBrightnessToDark(value);
   }
 
+  @action
+  Future changeTheme(CustomTheme value) async {
+    _currentTheme = value;
+    await _repository.changeTheme(value);
+  }
+
   // general methods:-----------------------------------------------------------
   Future init() async {
     _darkMode = await _repository?.isDarkMode ?? false;
+    _currentTheme = await _repository?.currentTheme ?? CustomTheme.orange;
   }
 
   bool isPlatformDark(BuildContext context) =>
@@ -47,7 +57,5 @@ abstract class _ThemeStore with Store {
 
   // dispose:-------------------------------------------------------------------
   @override
-  dispose() {
-
-  }
+  dispose() {}
 }

@@ -47,6 +47,27 @@ class MyApp extends StatelessWidget {
   final LanguageStore _languageStore =
       LanguageStore(appComponent.getRepository());
 
+  ThemeData _setTheme(CustomTheme theme) {
+    print(theme);
+    switch (theme) {
+      case CustomTheme.orange:
+        return themeDataOrange;
+        break;
+      case CustomTheme.purple:
+        return themeDataPurple;
+        break;
+      case CustomTheme.green:
+        return themeDataGreen;
+        break;
+      case CustomTheme.blue:
+        return themeDataBlue;
+        break;
+      default:
+        return themeDataOrange;
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -61,7 +82,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: Strings.appName,
-            theme: _themeStore.darkMode ? themeDataDark : themeData,
+            theme: _setTheme(_themeStore.currentTheme),
             routes: Routes.routes,
             locale: Locale(_languageStore.locale),
             supportedLocales: _languageStore.supportedLanguages

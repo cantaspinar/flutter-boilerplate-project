@@ -4,6 +4,7 @@ import 'package:boilerplate/data/local/datasources/post/post_datasource.dart';
 import 'package:boilerplate/data/sharedpref/shared_preference_helper.dart';
 import 'package:boilerplate/models/post/post.dart';
 import 'package:boilerplate/models/post/post_list.dart';
+import 'package:boilerplate/stores/theme/theme_store.dart';
 import 'package:sembast/sembast.dart';
 
 import 'local/constants/db_constants.dart';
@@ -78,6 +79,11 @@ class Repository {
       _sharedPrefsHelper.changeBrightnessToDark(value);
 
   Future<bool> get isDarkMode => _sharedPrefsHelper.isDarkMode;
+
+  Future<void> changeTheme(CustomTheme value) =>
+      _sharedPrefsHelper.changeTheme(value);
+
+  Future<CustomTheme> get currentTheme => _sharedPrefsHelper.currentTheme;
 
   // Language: -----------------------------------------------------------------
   Future<void> changeLanguage(String value) =>

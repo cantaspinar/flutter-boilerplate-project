@@ -68,17 +68,28 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildThemeButton() {
-    return Observer(
-      builder: (context) {
-        return IconButton(
-          onPressed: () {
-            _themeStore.changeBrightnessToDark(!_themeStore.darkMode);
-          },
-          icon: Icon(
-            _themeStore.darkMode ? Icons.brightness_5 : Icons.brightness_3,
-          ),
-        );
+    return PopupMenuButton<CustomTheme>(
+      onSelected: (CustomTheme result) {
+        _themeStore.changeTheme(result);
       },
+      itemBuilder: (BuildContext context) => <PopupMenuEntry<CustomTheme>>[
+        const PopupMenuItem<CustomTheme>(
+          value: CustomTheme.orange,
+          child: Text('Orange'),
+        ),
+        const PopupMenuItem<CustomTheme>(
+          value: CustomTheme.purple,
+          child: Text('Purple'),
+        ),
+        const PopupMenuItem<CustomTheme>(
+          value: CustomTheme.green,
+          child: Text('Green'),
+        ),
+        const PopupMenuItem<CustomTheme>(
+          value: CustomTheme.blue,
+          child: Text('Blue'),
+        ),
+      ],
     );
   }
 
@@ -223,7 +234,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(
                     color: _languageStore.locale == object.locale
                         ? Theme.of(context).primaryColor
-                        : _themeStore.darkMode ? Colors.white : Colors.black,
+                        : _themeStore.darkMode
+                            ? Colors.white
+                            : Colors.black,
                   ),
                 ),
                 onTap: () {
